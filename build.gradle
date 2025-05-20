@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'io.prometheus:simpleclient:0.16.0'          // ядро Prometheus клиент
+    implementation 'io.prometheus:simpleclient_common:0.16.0'   // общие утилиты
+    implementation 'io.prometheus:simpleclient_httpserver:0.16.0' // встроенный HTTP сервер для экспорта метрик
+
+}
+
+test {
+    useJUnitPlatform()
+}
