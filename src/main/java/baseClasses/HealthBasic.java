@@ -4,8 +4,8 @@ import interfaces.HealthInterface;
 
 import java.awt.*;
 
-abstract class HealthBasic implements HealthInterface {
-    boolean isOk;
+public abstract class HealthBasic implements HealthInterface {
+    public boolean isOk;
     @Override
     public boolean checkHealth() {
         return isOk;

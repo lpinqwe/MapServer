@@ -1,5 +1,8 @@
 package utils;
+import annotations.Singleton;
 import io.prometheus.client.Counter;
+
+@Singleton
 
 public class MetricsCheck {
     static final Counter requestCounter = Counter.build()
