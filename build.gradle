@@ -15,7 +15,7 @@ dependencies {
     implementation 'io.prometheus:simpleclient:0.16.0'          // ядро Prometheus клиент
     implementation 'io.prometheus:simpleclient_common:0.16.0'   // общие утилиты
     implementation 'io.prometheus:simpleclient_httpserver:0.16.0' // встроенный HTTP сервер для экспорта метрик
-
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
 }
 
 test {

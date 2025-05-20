@@ -1,30 +1,55 @@
 package utils;// Java Program to Set up a Basic HTTP Server
 import Fabrics.CommandFactory;
+import ServerHTTPHandlers.HealthHandler;
+import ServerHTTPHandlers.MetricsHandler;
 import baseClasses.HealthBasic;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpServer;
+import interfaces.ReadyCheckInterface;
 
 import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ExecutorService;
+
+// где-то в ServerHTTP
 
 // Driver Class
-public class ServerHTTP extends HealthBasic {
+public class ServerHTTP extends HealthBasic implements ReadyCheckInterface {
+    ExecutorService executor = Executors.newFixedThreadPool(10);
+
     CommandFactory factory;
+    private HttpServer server;
+    public ServerHTTP(int port) throws IOException {
+        server = HttpServer.create(new InetSocketAddress(port), 0);
+        server.createContext("/health", new HealthHandler());
+        server.createContext("/metrics", new MetricsHandler());
 
-    public void ServerHTTP (){
-
-//        // Create an HttpServer instance
-//        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-//
-//        // Create a context for a specific path and set the handler
-//        server.createContext("/", new MyHandler());
-//
-//        // Start the server
-//        server.setExecutor(null); // Use the default executor
-//        server.start();
-//
-//        System.out.println("Server is running on port 8000");
-
+        //todo make context factory
     }
+
+    public void start() {
+        server.start();
+        System.out.println("Server started on http://localhost:" + server.getAddress().getPort());
+    }
+
+    private boolean ready=false;
+    @Override
+    public boolean checkReady() {
+        return this.ready;
+    }
+
+    @Override
+    public void imReady() {
+        this.ready=true;
+    }
+
+    @Override
+    public void notReady() {
+        this.ready=false;
+    }
+
     // define a custom HttpHandler
     static class MyHandler implements HttpHandler {
         @Override
