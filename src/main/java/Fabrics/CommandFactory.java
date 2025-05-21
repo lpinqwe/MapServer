@@ -3,7 +3,7 @@ package Fabrics;
 import ClassesDTO.CommandDTO;
 import commands.CommandGetMoonMapFragment;
 import commands.CommandGetPageWithMoonMap;
-import interfaces.CommandInerface;
+import interfaces.CommandInterface;
 import utils.ResponseWrapper;
 
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 public class CommandFactory {
 
-    private final Map<String, Function<CommandDTO, CommandInerface>> commands = new HashMap<>();
+    private final Map<String, Function<CommandDTO, CommandInterface>> commands = new HashMap<>();
 
     public CommandFactory() {
         commands.put("image", CommandGetPageWithMoonMap::new);
@@ -21,13 +21,13 @@ public class CommandFactory {
 
     public ResponseWrapper createCommand(CommandDTO dto) {
         String cmdName = dto.commandType.toLowerCase();
-        Function<CommandDTO, CommandInerface> constructor = commands.get(cmdName);
+        Function<CommandDTO, CommandInterface> constructor = commands.get(cmdName);
 
         if (constructor == null) {
             throw new IllegalArgumentException("Unknown command: " + cmdName);
         }
 
-        CommandInerface command = constructor.apply(dto);
+        CommandInterface command = constructor.apply(dto);
         return command.execute();
     }
 

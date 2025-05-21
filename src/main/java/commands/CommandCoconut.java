@@ -1,12 +1,12 @@
 package commands;
 
-import interfaces.CommandInerface;
+import interfaces.CommandInterface;
 import utils.ResponseWrapper;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class CommandCoconut implements CommandInerface {
+public class CommandCoconut implements CommandInterface {
 
     @Override
     public ResponseWrapper execute() {

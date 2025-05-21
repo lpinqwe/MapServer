@@ -5,17 +5,15 @@ import ClassesDTO.ImageRequestDTO;
 import ClassesDTO.ImageResponseDTO;
 import Core.DatabaseConnection;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import interfaces.CommandInerface;
+import interfaces.CommandInterface;
 import utils.ResponseWrapper;
 
-public class CommandGetMoonMapFragment implements CommandInerface {
+public class CommandGetMoonMapFragment implements CommandInterface {
     //todo error processing
     int xId;
     int yId;

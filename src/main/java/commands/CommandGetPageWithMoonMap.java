@@ -2,15 +2,13 @@ package commands;
 
 import ClassesDTO.CommandDTO;
 import ClassesDTO.ImageRequestDTO;
-import ClassesDTO.ImageResponseDTO;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import interfaces.CommandInerface;
+import interfaces.CommandInterface;
 import utils.ResponseWrapper;
 
 import java.nio.charset.StandardCharsets;
 
-public class CommandGetPageWithMoonMap implements CommandInerface {
+public class CommandGetPageWithMoonMap implements CommandInterface {
 
     int xId;
     int yId;

@@ -2,6 +2,6 @@ package interfaces;
 
 import utils.ResponseWrapper;
 
-public interface CommandInerface {
+public interface CommandInterface {
     ResponseWrapper execute();
 }
