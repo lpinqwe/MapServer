@@ -1,4 +1,4 @@
-package utils;// Java Program to Set up a Basic HTTP Server
+package Core;// Java Program to Set up a Basic HTTP Server
 
 import Fabrics.CommandFactory;
 import ServerHTTPHandlers.CommandHandler;
@@ -9,6 +9,7 @@ import baseClasses.HealthBasic;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
+import commands.CommandCoconut;
 import interfaces.ReadyCheckInterface;
 
 import java.io.IOException;
@@ -27,8 +28,10 @@ public class ServerHTTP extends HealthBasic implements ReadyCheckInterface {
         server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/health", new HealthHandler());
         server.createContext("/metrics", new MetricsHandler());
-        server.createContext("/image", new ShowImageHandler());
+        //
+        server.createContext("/image", new CommandHandler());
         server.createContext("/command_post", new CommandHandler());
+        server.createContext("/coconut", new CommandHandler());
         server.setExecutor(executor);
 
         //todo make context factory

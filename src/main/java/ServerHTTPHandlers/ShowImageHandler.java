@@ -19,6 +19,7 @@ public class ShowImageHandler implements HttpHandler {
 
         executor.submit(() -> {
             try {
+                //Note delete this class
                 //Todo json to DTO CommandDTO, factory call by cmdtype,answer-send answer
                 //Todo return html with image from command or payload if no image
             } catch (Exception e) {

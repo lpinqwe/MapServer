@@ -4,9 +4,11 @@ import annotations.Singleton;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 //usage example
 //  Health h1 = SingletonFactory.getInstance(Health.class, new MyBusinessClass());
 public class SingletonFactory {
+    //NOTE I know that its over engineering, but I like it
     private static final Map<Class<?>, Object> instances = new ConcurrentHashMap<>();
 
     @SuppressWarnings("unchecked")

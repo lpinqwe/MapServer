@@ -16,6 +16,8 @@ dependencies {
     implementation 'io.prometheus:simpleclient_common:0.16.0'   // общие утилиты
     implementation 'io.prometheus:simpleclient_httpserver:0.16.0' // встроенный HTTP сервер для экспорта метрик
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.0'
+    implementation 'com.zaxxer:HikariCP:5.0.1' // последняя версия на май 2025
+    implementation 'org.postgresql:postgresql:42.6.0' // драйвер PostgreSQL
 }
 
 test {
