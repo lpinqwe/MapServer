@@ -1,6 +1,7 @@
 package Fabrics;
 
 import ClassesDTO.CommandDTO;
+import commands.CommandCoconut;
 import commands.CommandGetMoonMapFragment;
 import commands.CommandGetPageWithMoonMap;
 import interfaces.CommandInterface;
@@ -17,6 +18,7 @@ public class CommandFactory {
     public CommandFactory() {
         commands.put("image", CommandGetPageWithMoonMap::new);
         commands.put("command_post", CommandGetMoonMapFragment::new);
+        commands.put("coconut", CommandCoconut::new);
     }
 
     public ResponseWrapper createCommand(CommandDTO dto) {

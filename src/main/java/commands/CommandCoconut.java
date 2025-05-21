@@ -1,5 +1,6 @@
 package commands;
 
+import ClassesDTO.CommandDTO;
 import interfaces.CommandInterface;
 import utils.ResponseWrapper;
 
@@ -7,6 +8,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class CommandCoconut implements CommandInterface {
+
+    public CommandCoconut(CommandDTO commandDTO) {
+    }
 
     @Override
     public ResponseWrapper execute() {
